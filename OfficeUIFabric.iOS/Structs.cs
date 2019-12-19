@@ -1,6 +1,6 @@
 using ObjCRuntime;
 
-namespace OfficeUIFabric.iOS
+namespace FabricComponents
 {
     [Native]
     public enum MSActivityIndicatorViewSize : long

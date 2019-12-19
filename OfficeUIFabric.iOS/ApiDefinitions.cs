@@ -4,7 +4,7 @@ using Foundation;
 using ObjCRuntime;
 using UIKit;
 
-namespace OfficeUIFabric.iOS
+namespace FabricComponents
 {
 
     [Static]
@@ -16,7 +16,7 @@ namespace OfficeUIFabric.iOS
 
         // extern const unsigned char [] OfficeUIFabricVersionString;
         [Field("OfficeUIFabricVersionString", "__Internal")]
-        byte[] OfficeUIFabricVersionString { get; }
+        char[] OfficeUIFabricVersionString { get; }
     }
 
     // @protocol AccessibleViewDelegate
@@ -323,9 +323,10 @@ namespace OfficeUIFabric.iOS
         [Export("resignFirstResponder")]
         bool ResignFirstResponder { get; }
 
+        //Todo: This is also troubling
         // -(void)observeValueForKeyPath:(NSString * _Nullable)keyPath ofObject:(id _Nullable)object change:(NSDictionary<NSKeyValueChangeKey,id> * _Nullable)change context:(void * _Nullable)context;
-        [Export("observeValueForKeyPath:ofObject:change:context:")]
-        unsafe void ObserveValueForKeyPath([NullAllowed] string keyPath, [NullAllowed] NSObject @object, [NullAllowed] NSDictionary<NSString, NSObject> change, [NullAllowed] void* context);
+        //[Export("observeValueForKeyPath:ofObject:change:context:")]
+        //unsafe void ObserveValueForKeyPath([NullAllowed] string keyPath, [NullAllowed] NSObject @object, [NullAllowed] NSDictionary<NSString, NSObject> change, [NullAllowed] void* context);
 
         // -(NSInteger)accessibilityElementCount __attribute__((warn_unused_result));
         [Export("accessibilityElementCount")]
@@ -1215,7 +1216,7 @@ namespace OfficeUIFabric.iOS
     {
         // -(void)scrollViewWillEndDragging:(UIScrollView * _Nonnull)scrollView withVelocity:(CGPoint)velocity targetContentOffset:(CGPoint * _Nonnull)targetContentOffset;
         [Export("scrollViewWillEndDragging:withVelocity:targetContentOffset:")]
-        unsafe void ScrollViewWillEndDragging(UIScrollView scrollView, CGPoint velocity, CGPoint* targetContentOffset);
+        unsafe void ScrollViewWillEndDragging(UIScrollView scrollView, CGPoint velocity, ref CGPoint targetContentOffset);
 
         // -(void)scrollViewDidEndDecelerating:(UIScrollView * _Nonnull)scrollView;
         [Export("scrollViewDidEndDecelerating:")]
