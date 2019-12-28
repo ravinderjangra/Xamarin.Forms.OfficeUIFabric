@@ -65,6 +65,8 @@
     <None Include="Entitlements.plist" />
     <None Include="Info.plist" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Renderers\FabricButtonRenderer.cs" />
+    <Compile Include="Renderers\FabicLabelRenderer.cs" />
   </ItemGroup>
   <ItemGroup>
     <InterfaceDefinition Include="Resources\LaunchScreen.storyboard" />
@@ -128,6 +130,13 @@
       <Project>{3A9C2491-4FD9-4349-BB5E-35868E2FAB60}</Project>
       <Name>OfficeUIFabricSample</Name>
     </ProjectReference>
+    <ProjectReference Include="..\..\OfficeUIFabric.iOS\OfficeUIFabric.iOS.csproj">
+      <Project>{04E314A4-C0F2-4BEB-84A3-1832BFC2EBAE}</Project>
+      <Name>OfficeUIFabric.iOS</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Renderers\" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.iOS.CSharp.targets" />
 </Project>
