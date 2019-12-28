@@ -1,9 +1,7 @@
 ﻿<metadata>
-  <!--
-  This sample removes the class: android.support.v4.content.AsyncTaskLoader.LoadTask:
-  <remove-node path="/api/package[@name='android.support.v4.content']/class[@name='AsyncTaskLoader.LoadTask']" />
-  
-  This sample removes the method: android.support.v4.content.CursorLoader.loadInBackground:
-  <remove-node path="/api/package[@name='android.support.v4.content']/class[@name='CursorLoader']/method[@name='loadInBackground']" />
-  -->
+    <!--Todo: implement these properly in additions or here. -->
+    <remove-node path="/api/package[@name='com.microsoft.officeuifabric.util']/class[@name='ColorProperty']" />
+    <remove-node path="/api/package[@name='com.microsoft.officeuifabric.popupmenu']/class[@name='PopupMenuAdapter']" />
+    <remove-node path="/api/package[@name='com.microsoft.officeuifabric.listitem']/class[@name='ListItemView']" />
+    <remove-node path="/api/package[@name='com.microsoft.officeuifabric.popupmenu']/class[@name='PopupMenuItem.CREATOR']" />
 </metadata>
