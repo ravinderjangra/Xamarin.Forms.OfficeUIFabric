@@ -1,7 +1,7 @@
 ﻿using System;
 using Xamarin.Forms;
 
-namespace OfficeUIFabricSample
+namespace Visual.Fabric.Forms
 {
     public class FabricVisual : IVisual
     {

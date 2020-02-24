@@ -1,13 +1,13 @@
 ﻿using FabricComponents;
-using OfficeUIFabricSample;
-using OfficeUIFabricSample.iOS.Renderers;
 using UIKit;
+using Visual.Fabric.Forms;
+using Visual.Fabric.iOS.Renderers;
 using Xamarin.Forms;
 using Xamarin.Forms.Platform.iOS;
 
 [assembly: ExportRenderer(typeof(Button), typeof(FabricButtonRenderer), new[] { typeof(FabricVisual) })]
 
-namespace OfficeUIFabricSample.iOS.Renderers
+namespace Visual.Fabric.iOS.Renderers
 {
     public class FabricButtonRenderer : ButtonRenderer
     {
