@@ -1,0 +1,46 @@
+
+trigger:
+  branches:
+    include:
+    - master
+  paths:
+    exclude:
+    - README.md
+    - Docs/Screenshots
+
+pr:
+  branches:
+    include:
+    - master
+  paths:
+    exclude:
+    - README.md
+    - Docs/Screenshots
+
+jobs:
+  - job: build_components
+    displayName: Build platform component libraries
+    pool:
+      vmImage: 'macos-latest'
+    steps:
+    - task: NuGetToolInstaller@1
+      displayName: 'Use NuGet 5.x'
+      inputs:
+        versionSpec: 5.x
+    - task: NuGetCommand@2
+      displayName: 'NuGet restore'
+    - bash: |
+        chmod +x buildandpack.sh
+        ./buildandpack.sh
+      displayName: 'Build and Generate packages'
+    - task: CopyFiles@2
+      displayName: 'Copy Files to: $(Build.SourcesDirectory)'
+      inputs:
+        SourceFolder: '$(Build.ArtifactStagingDirectory)'
+        Contents: '**/*.nupkg'
+        TargetFolder: '$(Build.SourcesDirectory)'
+        flattenFolders: true
+    - task: PublishBuildArtifacts@1
+      displayName: 'Publish Artifact: package'
+      inputs:
+        ArtifactName: package
