@@ -7,10 +7,14 @@
     <authors>Ravinder Jangra</authors>
     <owners>Ravinder Jangra</owners>
     <requireLicenseAcceptance>true</requireLicenseAcceptance>
+    <license type="expression">MIT</license>
     <description>Develop iOS apps using Office UI Fabric controls.</description>
     <projectUrl>https://github.com/ravinderjangra/Xamarin.Forms.OfficeUIFabric</projectUrl>
+    <dependencies>
+      <group targetFramework="Xamarin.iOS10" />
+    </dependencies>
   </metadata>
   <files>
-    <file src="../OfficeUIFabric.iOS/release/FabricComponents.dll" target="lib/Xamarin.iOS" />
+    <file src="../OfficeUIFabric.iOS/bin/release/FabricComponents.dll" target="lib/Xamarin.iOS10" />
   </files>
 </package>

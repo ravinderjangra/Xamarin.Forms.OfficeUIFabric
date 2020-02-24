@@ -49,7 +49,17 @@ cd -
 MSBuild OfficeUIFabric.iOS/OfficeUIFabric.iOS.csproj  /p:Configuration=Debug
 MSBuild OfficeUIFabric.iOS/OfficeUIFabric.iOS.csproj  /p:Configuration=Release
 
+# build Xamarin.Forms.Libs
+cd Visual.Fabric/Visual.Fabric.iOS
+MSBuild Visual.Fabric.iOS.csproj  /p:Configuration=Debug
+MSBuild Visual.Fabric.iOS.csproj  /p:Configuration=Release
+cd ../..
+cd Visual.Fabric/Visual.Fabric.Android
+MSBuild Visual.Fabric.Android.csproj  /p:Configuration=Debug
+MSBuild Visual.Fabric.Android.csproj  /p:Configuration=Release
+cd ../..
+
 # package for nuget
-nuget pack nuget/Xamarin.iOS.FabricComponents.nuspec -Verbosity detailed
-nuget pack nuget/Xamarin.Android.FabricComponents.nuspec -Verbosity detailed
-nuget pack nuget/Xamarin.Forms.Visual.Fabric.nuspec -Verbosity detailed
+nuget pack nuget/Xamarin.iOS.FabricComponents.nuspec
+nuget pack nuget/Xamarin.Android.FabricComponents.nuspec
+nuget pack nuget/Xamarin.Forms.Visual.Fabric.nuspec

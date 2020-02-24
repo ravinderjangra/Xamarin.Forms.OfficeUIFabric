@@ -5,34 +5,33 @@
     <authors>Ravinder Jangra</authors>
     <owners>Ravinder Jangra</owners>
     <requireLicenseAcceptance>true</requireLicenseAcceptance>
-    <description>Develop Xamarin.Forms (Android & iOS) apps using Office UI Fabric controls.</description>
+    <description>Develop Xamarin.Forms Android and iOS apps using Office UI Fabric controls.</description>
     <license type="expression">MIT</license>
     <projectUrl>https://github.com/ravinderjangra/Xamarin.Forms.OfficeUIFabric</projectUrl>
-    <repository type="git" url="https://github.com/ravinderjangra/Xamarin.Forms.OfficeUIFabric/>
-    <description>Office UI Fabric renderers for Xamarin.Forms</description>
+    <repository type="git" url="https://github.com/ravinderjangra/Xamarin.Forms.OfficeUIFabric" />
     <dependencies>
-      <group>
-        <dependency id="Xamarin.Forms" version="4.4.0.991640"/>
-      </group>
       <group targetFramework="MonoAndroid10.0">
+        <dependency id="Xamarin.Forms" version="4.4.0.991640"/>
         <dependency id="Xamarin.Android.FabricComponents" version="0.0.1-rc1"/>
         <dependency id="Xamarin.AndroidX.Lifecycle.LiveData" version="2.1.0" />
         <dependency id="Xamarin.Google.Android.Material" version="1.0.0" />
       </group>
       <group targetFramework="Xamarin.iOS10">
+        <dependency id="Xamarin.Forms" version="4.4.0.991640"/>
         <dependency id="Xamarin.iOS.FabricComponents" version="0.0.1-rc1"/>
       </group>
+    </dependencies>
   </metadata>
   <files>
     <!--netstandard-->
-    <file src="_._" target="lib\netstandard2.0\_._" />
+    <file src="..\Visual.Fabric\Visual.Fabric.Forms\bin\Release\*" target="lib\netstandard2.0" />
     
     <!--Android 10.0-->
-    <file src="..\Visual.Fabric.Android\bin\$Configuration$\Visual.Fabric.Android.dll" target="lib\MonoAndroid10.0" />
-    <file src="..\Visual.Fabric.Android\bin\$Configuration$\Visual.Fabric.Android.*pdb" target="lib\MonoAndroid10.0" />
+    <file src="..\Visual.Fabric\Visual.Fabric.Android\bin\Release\Visual.Fabric.Android.dll" target="lib\MonoAndroid10.0" />
+    <file src="..\Visual.Fabric\Visual.Fabric.Android\bin\Release\Visual.Fabric.Android.*pdb" target="lib\MonoAndroid10.0" />
 
     <!--iOS-->
-    <file src="..\Visual.Fabric.iOS\bin\$Configuration$\Visual.Fabric.iOS.dll" target="lib\Xamarin.iOS10" />
-    <file src="..\Visual.Fabric.iOS\bin\$Configuration$\Visual.Fabric.iOS.*pdb" target="lib\Xamarin.iOS10" />
+    <file src="..\Visual.Fabric\Visual.Fabric.iOS\bin\Release\Visual.Fabric.iOS.dll" target="lib\Xamarin.iOS10" />
+    <file src="..\Visual.Fabric\Visual.Fabric.iOS\bin\Release\Visual.Fabric.iOS.*pdb" target="lib\Xamarin.iOS10" />
   </files>
 </package>

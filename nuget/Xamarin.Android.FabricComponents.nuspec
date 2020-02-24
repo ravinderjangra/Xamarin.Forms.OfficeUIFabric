@@ -9,8 +9,12 @@
     <requireLicenseAcceptance>true</requireLicenseAcceptance>
     <description>Develop Android apps using Office UI Fabric controls.</description>
     <projectUrl>https://github.com/ravinderjangra/Xamarin.Forms.OfficeUIFabric</projectUrl>
+    <license type="expression">MIT</license>
+    <dependencies>
+      <group targetFramework="MonoAndroid10.0" />
+    </dependencies>
   </metadata>
   <files>
-    <file src="../OfficeUIFabric.Android/release/OfficeUIFabric.Android.dll" target="lib/MonoAndroid />
+    <file src="../OfficeUIFabric.Android/bin/release/OfficeUIFabric.Android.dll" target="lib/MonoAndroid10.0" />
   </files>
 </package>
