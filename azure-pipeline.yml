@@ -34,11 +34,11 @@ jobs:
         ./buildandpack.sh
       displayName: 'Build and Generate packages'
     - task: CopyFiles@2
-      displayName: 'Copy Files to: $(Build.SourcesDirectory)'
+      displayName: 'Copy NuGet Package Files to: $(Build.ArtifactStagingDirectory)'
       inputs:
-        SourceFolder: '$(Build.ArtifactStagingDirectory)'
+        SourceFolder: '$(Build.SourcesDirectory)'
         Contents: '**/*.nupkg'
-        TargetFolder: '$(Build.SourcesDirectory)'
+        TargetFolder: '$(Build.ArtifactStagingDirectory)'
         flattenFolders: true
     - task: PublishBuildArtifacts@1
       displayName: 'Publish Artifact: package'
