@@ -132,6 +132,10 @@
       <Project>{04E314A4-C0F2-4BEB-84A3-1832BFC2EBAE}</Project>
       <Name>OfficeUIFabric.iOS</Name>
     </ProjectReference>
+    <ProjectReference Include="..\..\Visual.Fabric\Visual.Fabric.iOS\Visual.Fabric.iOS.csproj">
+      <Project>{9FA43A1F-5EF6-4DA9-8C2C-AEC2E7C6741F}</Project>
+      <Name>Visual.Fabric.iOS</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.iOS.CSharp.targets" />
 </Project>
