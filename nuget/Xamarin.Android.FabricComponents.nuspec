@@ -1,0 +1,16 @@
+﻿<?xml version="1.0"?>
+<package>
+  <metadata>
+    <id>Xamarin.Android.FabricComponents</id>
+    <title>Xamarin Office UI Fabric Components for Android</title>
+    <version>0.0.1-rc1</version>
+    <authors>Ravinder Jangra</authors>
+    <owners>Ravinder Jangra</owners>
+    <requireLicenseAcceptance>true</requireLicenseAcceptance>
+    <description>Develop Android apps using Office UI Fabric controls.</description>
+    <projectUrl>https://github.com/ravinderjangra/Xamarin.Forms.OfficeUIFabric</projectUrl>
+  </metadata>
+  <files>
+    <file src="../OfficeUIFabric.Android/release/OfficeUIFabric.Android.dll" target="lib/MonoAndroid />
+  </files>
+</package>
