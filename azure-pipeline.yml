@@ -42,7 +42,7 @@ jobs:
       displayName: 'Copy NuGet Package Files to: $(Build.ArtifactStagingDirectory)'
       inputs:
         SourceFolder: '$(Build.SourcesDirectory)'
-        Contents: '**/*.nupkg'
+        Contents: '*.nupkg'
         TargetFolder: '$(Build.ArtifactStagingDirectory)'
         flattenFolders: true
     - task: PublishBuildArtifacts@1
