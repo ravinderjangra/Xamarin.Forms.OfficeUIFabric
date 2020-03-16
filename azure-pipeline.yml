@@ -30,6 +30,11 @@ jobs:
     - task: NuGetCommand@2
       displayName: 'NuGet restore'
     - bash: |
+        chmod +x build.sh
+        ./build.sh --target=externals
+      workingDirectory: Build
+      displayName: 'Build pod framework'
+    - bash: |
         chmod +x buildandpack.sh
         ./buildandpack.sh
       displayName: 'Build and Generate packages'
