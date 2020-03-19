@@ -936,7 +936,7 @@ namespace FabricComponents
     }
 
     // @interface MSButton : UIButton
-    [BaseType(typeof(UIButton))]
+    [BaseType(typeof(UIButton), Name = "_TtC14OfficeUIFabric8MSButton")]
     [Protocol]
     interface MSButton
     {

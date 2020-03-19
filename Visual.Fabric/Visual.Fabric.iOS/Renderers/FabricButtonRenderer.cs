@@ -13,7 +13,7 @@ namespace Visual.Fabric.iOS.Renderers
     {
         protected override UIButton CreateNativeControl()
         {
-            var style = new MSButtonStyle();
+            var style = MSButtonStyle.PrimaryFilled;
             return new MSButton(style);
         }
     }
