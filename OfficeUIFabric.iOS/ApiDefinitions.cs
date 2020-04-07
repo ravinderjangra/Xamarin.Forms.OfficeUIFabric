@@ -21,9 +21,11 @@ namespace FabricComponents
         NSString OfficeUIFabricVersionString { get; }
     }
 
+    interface IMSAccessibleViewDelegate { }
+
     // @protocol AccessibleViewDelegate
     [Protocol, Model]
-    [BaseType(typeof(NSObject))]
+    [BaseType(typeof(NSObject), Name = ApiDefinitionsConstants.MSAccessibleViewDelegate)]
     interface AccessibleViewDelegate
     {
         // @optional -(NSString * _Nullable)accessibilityValueForAccessibleView:(UIView * _Nonnull)accessibleView __attribute__((warn_unused_result));
@@ -61,12 +63,10 @@ namespace FabricComponents
         NSObject[] AccessibilityElementsForAccessibleView(UIView accessibleView);
     }
 
-    interface IAccessibleViewDelegate { }
-
     // @protocol AccessibleTableViewDelegate <AccessibleViewDelegate>
     [Protocol, Model]
-    [BaseType(typeof(NSObject))]
-    interface AccessibleTableViewDelegate
+    [BaseType(typeof(NSObject), Name = ApiDefinitionsConstants.MSAccessibleTableViewDelegate)]
+    interface AccessibleTableViewDelegate : AccessibleViewDelegate
     {
         // @optional -(NSString * _Nullable)accessibilityValueForRowAtIndexPath:(NSIndexPath * _Nonnull)indexPath forTableView:(UITableView * _Nonnull)forTableView __attribute__((warn_unused_result));
         [Export("accessibilityValueForRowAtIndexPath:forTableView:")]
@@ -77,8 +77,7 @@ namespace FabricComponents
     }
 
     // @interface MSActionsCell : UITableViewCell
-    [BaseType(typeof(UITableViewCell))]
-    [Protocol]
+    [BaseType(typeof(UITableViewCell), Name = ApiDefinitionsConstants.MSActionsCell)]
     interface MSActionsCell
     {
         // +(CGFloat)heightWithAction1Title:(NSString * _Nonnull)action1Title action2Title:(NSString * _Nonnull)action2Title containerWidth:(CGFloat)containerWidth __attribute__((warn_unused_result));
@@ -147,8 +146,7 @@ namespace FabricComponents
     }
 
     // @interface MSActivityIndicatorCell : UITableViewCell
-    [BaseType(typeof(UITableViewCell))]
-    [Protocol]
+    [BaseType(typeof(UITableViewCell), Name = ApiDefinitionsConstants.MSActivityIndicatorCell)]
     interface MSActivityIndicatorCell
     {
         // -(instancetype _Nonnull)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString * _Nullable)reuseIdentifier __attribute__((objc_designated_initializer));
@@ -175,8 +173,7 @@ namespace FabricComponents
     }
 
     // @interface MSActivityIndicatorView : UIView
-    [BaseType(typeof(UIView))]
-    [Protocol]
+    [BaseType(typeof(UIView), Name = ApiDefinitionsConstants.MSActivityIndicatorView)]
     interface MSActivityIndicatorView
     {
         // +(CGSize)sizeThatFitsWithSize:(enum MSActivityIndicatorViewSize)size __attribute__((warn_unused_result));
@@ -235,8 +232,7 @@ namespace FabricComponents
     }
 
     // @interface MSAnimationSynchronizer : NSObject
-    [BaseType(typeof(NSObject))]
-    [Protocol]
+    [BaseType(typeof(NSObject), Name = ApiDefinitionsConstants.MSAnimationSynchronizer)]
     [DisableDefaultCtor]
     interface MSAnimationSynchronizer
     {
@@ -276,8 +272,7 @@ namespace FabricComponents
     }
 
     // @interface MSAvatarData : NSObject <MSAvatar>
-    [BaseType(typeof(NSObject))]
-    [Protocol]
+    [BaseType(typeof(NSObject), Name = ApiDefinitionsConstants.MSAvatarData)]
     [DisableDefaultCtor]
     interface MSAvatarData : MSAvatar
     {
@@ -300,8 +295,7 @@ namespace FabricComponents
     }
 
     // @interface MSAvatarView : UIView
-    [BaseType(typeof(UIView))]
-    [Protocol]
+    [BaseType(typeof(UIView), Name = ApiDefinitionsConstants.MSAvatarView)]
     interface MSAvatarView
     {
         // @property (nonatomic) enum MSAvatarSize avatarSize;
@@ -359,8 +353,7 @@ namespace FabricComponents
     }
 
     // @interface MSBadgeField : UIView
-    [BaseType(typeof(UIView))]
-    [Protocol]
+    [BaseType(typeof(UIView), Name = ApiDefinitionsConstants.MSBadgeField)]
     interface MSBadgeField
     {
         // @property (copy, nonatomic) NSString * _Nonnull label;
@@ -405,7 +398,7 @@ namespace FabricComponents
 
         [Wrap("WeakBadgeFieldDelegate")]
         [NullAllowed]
-        MSBadgeFieldDelegate BadgeFieldDelegate { get; set; }
+        IMSBadgeFieldDelegate BadgeFieldDelegate { get; set; }
 
         // @property (nonatomic, weak) id<MSBadgeFieldDelegate> _Nullable badgeFieldDelegate;
         [NullAllowed, Export("badgeFieldDelegate", ArgumentSemantic.Weak)]
@@ -504,9 +497,11 @@ namespace FabricComponents
         void VoiceOverFocusOnTextFieldAndAnnounce([NullAllowed] string announcement);
     }
 
+    interface IMSBadgeViewDelegate { }
+
     // @protocol MSBadgeViewDelegate
     [Protocol, Model]
-    [BaseType(typeof(NSObject))]
+    [BaseType(typeof(NSObject), Name = ApiDefinitionsConstants.MSBadgeViewDelegate)]
     interface MSBadgeViewDelegate
     {
         // @required -(void)didSelectBadge:(MSBadgeView * _Nonnull)badge;
@@ -520,11 +515,11 @@ namespace FabricComponents
         void DidTapSelectedBadge(MSBadgeView badge);
     }
 
-    interface IMSBadgeViewDelegate { }
+    interface IMSBadgeFieldDelegate { }
 
     // @protocol MSBadgeFieldDelegate
     [Protocol, Model]
-    [BaseType(typeof(NSObject))]
+    [BaseType(typeof(NSObject), Name = ApiDefinitionsConstants.MSBadgeFieldDelegate)]
     interface MSBadgeFieldDelegate
     {
         // @optional -(MSBadgeViewDataSource * _Nonnull)badgeField:(MSBadgeField * _Nonnull)badgeField badgeDataSourceForText:(NSString * _Nonnull)text __attribute__((warn_unused_result));
@@ -597,8 +592,7 @@ namespace FabricComponents
     }
 
     // @interface MSBadgeView : UIView
-    [BaseType(typeof(UIView))]
-    [Protocol]
+    [BaseType(typeof(UIView), Name = ApiDefinitionsConstants.MSBadgeView)]
     interface MSBadgeView
     {
         // @property (nonatomic, strong) MSBadgeViewDataSource * _Nullable dataSource;
@@ -607,7 +601,7 @@ namespace FabricComponents
 
         [Wrap("WeakDelegate")]
         [NullAllowed]
-        MSBadgeViewDelegate Delegate { get; set; }
+        IMSBadgeViewDelegate Delegate { get; set; }
 
         // @property (nonatomic, weak) id<MSBadgeViewDelegate> _Nullable delegate;
         [NullAllowed, Export("delegate", ArgumentSemantic.Weak)]
@@ -643,8 +637,7 @@ namespace FabricComponents
     }
 
     // @interface MSBadgeViewDataSource : NSObject
-    [BaseType(typeof(NSObject))]
-    [Protocol]
+    [BaseType(typeof(NSObject), Name = ApiDefinitionsConstants.MSBadgeViewDataSource)]
     [DisableDefaultCtor]
     interface MSBadgeViewDataSource
     {
@@ -667,8 +660,7 @@ namespace FabricComponents
     }
 
     // @interface MSBarButtonItems : NSObject
-    [BaseType(typeof(NSObject))]
-    [Protocol]
+    [BaseType(typeof(NSObject), Name = ApiDefinitionsConstants.MSBarButtonItems)]
     [DisableDefaultCtor]
     interface MSBarButtonItems
     {
@@ -679,8 +671,7 @@ namespace FabricComponents
     }
 
     // @interface MSBlurringView : UIView
-    [BaseType(typeof(UIView))]
-    [Protocol]
+    [BaseType(typeof(UIView), Name = ApiDefinitionsConstants.MSBlurringView)]
     interface MSBlurringView
     {
         // -(instancetype _Nonnull)initWithStyle:(UIBlurEffectStyle)style backgroundColor:(UIColor * _Nullable)backgroundColor __attribute__((objc_designated_initializer));
@@ -698,8 +689,7 @@ namespace FabricComponents
     }
 
     // @interface MSTableViewCell : UITableViewCell
-    [BaseType(typeof(UITableViewCell))]
-    [Protocol]
+    [BaseType(typeof(UITableViewCell), Name = ApiDefinitionsConstants.MSTableViewCell)]
     interface MSTableViewCell
     {
         // @property (readonly, nonatomic, class) CGFloat smallHeight;
@@ -913,8 +903,7 @@ namespace FabricComponents
     }
 
     // @interface MSBooleanCell : MSTableViewCell
-    [BaseType(typeof(MSTableViewCell))]
-    [Protocol]
+    [BaseType(typeof(MSTableViewCell), Name = ApiDefinitionsConstants.MSBooleanCell)]
     interface MSBooleanCell
     {
         // @property (nonatomic) BOOL isOn;
@@ -936,8 +925,7 @@ namespace FabricComponents
     }
 
     // @interface MSButton : UIButton
-    [BaseType(typeof(UIButton), Name = "_TtC14OfficeUIFabric8MSButton")]
-    [Protocol]
+    [BaseType(typeof(UIButton), Name = ApiDefinitionsConstants.MSButton)]
     interface MSButton
     {
         // @property (nonatomic) enum MSButtonStyle style;
@@ -980,8 +968,7 @@ namespace FabricComponents
     }
 
     // @interface MSCalendarConfiguration : NSObject
-    [BaseType(typeof(NSObject))]
-    [Protocol]
+    [BaseType(typeof(NSObject), Name = ApiDefinitionsConstants.MSCalendarConfiguration)]
     [DisableDefaultCtor]
     interface MSCalendarConfiguration
     {
@@ -1000,8 +987,7 @@ namespace FabricComponents
     }
 
     // @interface MSCenteredLabelCell : UITableViewCell
-    [BaseType(typeof(UITableViewCell))]
-    [Protocol]
+    [BaseType(typeof(UITableViewCell), Name = ApiDefinitionsConstants.MSCenteredLabelCell)]
     interface MSCenteredLabelCell
     {
         // -(instancetype _Nonnull)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString * _Nullable)reuseIdentifier __attribute__((objc_designated_initializer));
@@ -1023,8 +1009,7 @@ namespace FabricComponents
     }
 
     // @interface MSCollectionViewCell : UICollectionViewCell
-    [BaseType(typeof(UICollectionViewCell))]
-    [Protocol]
+    [BaseType(typeof(UICollectionViewCell), Name = ApiDefinitionsConstants.MSCollectionViewCell)]
     interface MSCollectionViewCell
     {
         // @property (readonly, copy, nonatomic, class) NSString * _Nonnull identifier;
@@ -1067,8 +1052,7 @@ namespace FabricComponents
     }
 
     // @interface MSCollectionViewHeaderFooterView : UICollectionReusableView
-    [BaseType(typeof(UICollectionReusableView))]
-    [Protocol]
+    [BaseType(typeof(UICollectionReusableView), Name = ApiDefinitionsConstants.MSCollectionViewHeaderFooterView)]
     interface MSCollectionViewHeaderFooterView
     {
         // @property (readonly, copy, nonatomic, class) NSString * _Nonnull identifier;
@@ -1103,8 +1087,7 @@ namespace FabricComponents
     }
 
     // @interface MSColors : NSObject
-    [BaseType(typeof(NSObject))]
-    [Protocol]
+    [BaseType(typeof(NSObject), Name = ApiDefinitionsConstants.MSColors)]
     [DisableDefaultCtor]
     interface MSColors
     {
@@ -1530,13 +1513,12 @@ namespace FabricComponents
     }
 
     // @interface MSDateTimePicker : NSObject
-    [BaseType(typeof(NSObject))]
-    [Protocol]
+    [BaseType(typeof(NSObject), Name = ApiDefinitionsConstants.MSDateTimePicker)]
     interface MSDateTimePicker
     {
         [Wrap("WeakDelegate")]
         [NullAllowed]
-        MSDateTimePickerDelegate Delegate { get; set; }
+        IMSDateTimePickerDelegate Delegate { get; set; }
 
         // @property (nonatomic, weak) id<MSDateTimePickerDelegate> _Nullable delegate;
         [NullAllowed, Export("delegate", ArgumentSemantic.Weak)]
@@ -1555,9 +1537,11 @@ namespace FabricComponents
     [BaseType(typeof(NSObject))]
     interface MSDateTimePickerTitles { }
 
+    interface IMSDateTimePickerDelegate { }
+
     // @protocol MSDateTimePickerDelegate
     [Protocol, Model]
-    [BaseType(typeof(NSObject))]
+    [BaseType(typeof(NSObject), Name = ApiDefinitionsConstants.MSDateTimePickerDelegate)]
     interface MSDateTimePickerDelegate
     {
         // @required -(void)dateTimePicker:(MSDateTimePicker * _Nonnull)dateTimePicker didPickStartDate:(NSDate * _Nonnull)startDate endDate:(NSDate * _Nonnull)endDate;
@@ -1571,8 +1555,7 @@ namespace FabricComponents
     }
 
     // @interface MSDimmingView : UIView
-    [BaseType(typeof(UIView))]
-    [Protocol]
+    [BaseType(typeof(UIView), Name = ApiDefinitionsConstants.MSDimmingView)]
     interface MSDimmingView
     {
         // -(instancetype _Nonnull)initWithType:(enum MSDimmingViewType)type __attribute__((objc_designated_initializer));
@@ -1582,8 +1565,7 @@ namespace FabricComponents
     }
 
     // @interface MSDotView : UIView
-    [BaseType(typeof(UIView))]
-    [Protocol]
+    [BaseType(typeof(UIView), Name = ApiDefinitionsConstants.MSDotView)]
     interface MSDotView
     {
         // @property (nonatomic, strong) UIColor * _Nullable color;
@@ -1601,9 +1583,8 @@ namespace FabricComponents
     }
 
     // @interface MSDrawerController : UIViewController
-    [BaseType(typeof(UIViewController))]
-    [Protocol]
-    interface MSDrawerController
+    [BaseType(typeof(UIViewController), Name = ApiDefinitionsConstants.MSDrawerController)]
+    interface MSDrawerController : IUIPopoverPresentationControllerDelegate, IUIViewControllerTransitioningDelegate
     {
         // @property (nonatomic, strong) UIViewController * _Nullable contentController;
         [NullAllowed, Export("contentController", ArgumentSemantic.Strong)]
@@ -1671,7 +1652,7 @@ namespace FabricComponents
 
         [Wrap("WeakDelegate")]
         [NullAllowed]
-        MSDrawerControllerDelegate Delegate { get; set; }
+        IMSDrawerControllerDelegate Delegate { get; set; }
 
         // @property (nonatomic, weak) id<MSDrawerControllerDelegate> _Nullable delegate;
         [NullAllowed, Export("delegate", ArgumentSemantic.Weak)]
@@ -1720,9 +1701,11 @@ namespace FabricComponents
         bool AccessibilityPerformEscape { get; }
     }
 
+    interface IMSDrawerControllerDelegate { }
+
     // @protocol MSDrawerControllerDelegate
     [Protocol, Model]
-    [BaseType(typeof(NSObject))]
+    [BaseType(typeof(NSObject), Name = ApiDefinitionsConstants.MSDrawerControllerDelegate)]
     interface MSDrawerControllerDelegate
     {
         // @optional -(void)drawerControllerDidChangeExpandedState:(MSDrawerController * _Nonnull)controller;
@@ -1739,8 +1722,7 @@ namespace FabricComponents
     }
 
     // @interface MSEasyTapButton : UIButton
-    [BaseType(typeof(UIButton))]
-    [Protocol]
+    [BaseType(typeof(UIButton), Name = ApiDefinitionsConstants.MSEasyTapButton)]
     interface MSEasyTapButton
     {
         // -(BOOL)pointInside:(CGPoint)point withEvent:(UIEvent * _Nullable)event __attribute__((warn_unused_result));
@@ -1754,8 +1736,7 @@ namespace FabricComponents
     }
 
     // @interface MSFonts : NSObject
-    [BaseType(typeof(NSObject))]
-    [Protocol]
+    [BaseType(typeof(NSObject), Name = ApiDefinitionsConstants.MSFonts)]
     [DisableDefaultCtor]
     interface MSFonts
     {
@@ -1836,8 +1817,7 @@ namespace FabricComponents
     }
 
     // @interface MSHUD : NSObject
-    [BaseType(typeof(NSObject))]
-    [Protocol]
+    [BaseType(typeof(NSObject), Name = ApiDefinitionsConstants.MSHud)]
     [DisableDefaultCtor]
     interface MSHUD
     {
@@ -1848,7 +1828,7 @@ namespace FabricComponents
 
         [Wrap("WeakDelegate")]
         [NullAllowed]
-        MSHUDDelegate Delegate { get; set; }
+        IMSHUDDelegate Delegate { get; set; }
 
         // @property (nonatomic, weak) id<MSHUDDelegate> _Nullable delegate;
         [NullAllowed, Export("delegate", ArgumentSemantic.Weak)]
@@ -1899,9 +1879,11 @@ namespace FabricComponents
         void UpdateWith(string caption);
     }
 
+    interface IMSHUDDelegate { }
+
     // @protocol MSHUDDelegate
     [Protocol, Model]
-    [BaseType(typeof(NSObject))]
+    [BaseType(typeof(NSObject), Name = ApiDefinitionsConstants.MSHudDelegate)]
     interface MSHUDDelegate
     {
         // @required -(UIWindow * _Nullable)defaultWindowForHUD:(MSHUD * _Nonnull)hud __attribute__((warn_unused_result));
@@ -1914,8 +1896,7 @@ namespace FabricComponents
     }
 
     // @interface MSHUDParams : NSObject
-    [BaseType(typeof(NSObject))]
-    [Protocol]
+    [BaseType(typeof(NSObject), Name = ApiDefinitionsConstants.MSHudParams)]
     interface MSHUDParams
     {
         // @property (copy, nonatomic) NSString * _Nonnull caption;
@@ -1940,8 +1921,7 @@ namespace FabricComponents
     }
 
     // @interface MSLabel : UILabel
-    [BaseType(typeof(UILabel))]
-    [Protocol]
+    [BaseType (typeof (UILabel), Name = ApiDefinitionsConstants.MSLabel)]
     interface MSLabel
     {
         // @property (nonatomic) enum MSTextColorStyle colorStyle;
@@ -1967,8 +1947,7 @@ namespace FabricComponents
     }
 
     // @interface MSNavigationBar : UINavigationBar
-    [BaseType(typeof(UINavigationBar))]
-    [Protocol]
+    [BaseType(typeof(UINavigationBar), Name = ApiDefinitionsConstants.MSNavigationBar)]
     interface MSNavigationBar
     {
         // @property (nonatomic, strong) id<MSAvatar> _Nullable avatar;
@@ -2018,8 +1997,7 @@ namespace FabricComponents
     }
 
     // @interface MSNavigationController : UINavigationController
-    [BaseType(typeof(UINavigationController))]
-    [Protocol]
+    [BaseType(typeof(UINavigationController), Name = ApiDefinitionsConstants.MSNavigationController)]
     interface MSNavigationController
     {
         // @property (readonly, nonatomic, strong) MSNavigationBar * _Nonnull msNavigationBar;
@@ -2040,7 +2018,7 @@ namespace FabricComponents
 
         [Wrap("WeakDelegate")]
         [NullAllowed]
-        UINavigationControllerDelegate Delegate { get; set; }
+        IUINavigationControllerDelegate Delegate { get; set; }
 
         // @property (nonatomic, strong) id<UINavigationControllerDelegate> _Nullable delegate;
         [NullAllowed, Export("delegate", ArgumentSemantic.Strong)]
@@ -2094,8 +2072,7 @@ namespace FabricComponents
     }
 
     // @interface MSNotificationView : UIView
-    [BaseType(typeof(UIView))]
-    [Protocol]
+    [BaseType(typeof(UIView), Name = ApiDefinitionsConstants.MSNotificationView)]
     interface MSNotificationView
     {
         // @property (nonatomic, class) BOOL allowsMultipleToasts;
@@ -2138,9 +2115,8 @@ namespace FabricComponents
     }
 
     // @interface MSPageCardPresenterController : UIViewController
-    [BaseType(typeof(UIViewController))]
-    [Protocol]
-    interface MSPageCardPresenterController
+    [BaseType(typeof(UIViewController), Name = ApiDefinitionsConstants.MSPageCardPresenterController)]
+    interface MSPageCardPresenterController: IUIScrollViewDelegate, IUIViewControllerTransitioningDelegate
     {
         // @property (nonatomic) UIModalPresentationStyle modalPresentationStyle;
         [Export("modalPresentationStyle", ArgumentSemantic.Assign)]
@@ -2148,7 +2124,7 @@ namespace FabricComponents
 
         [Wrap("WeakTransitioningDelegate")]
         [NullAllowed]
-        UIViewControllerTransitioningDelegate TransitioningDelegate { get; set; }
+        IUIViewControllerTransitioningDelegate TransitioningDelegate { get; set; }
 
         // @property (nonatomic, strong) id<UIViewControllerTransitioningDelegate> _Nullable transitioningDelegate;
         [NullAllowed, Export("transitioningDelegate", ArgumentSemantic.Strong)]
@@ -2168,8 +2144,7 @@ namespace FabricComponents
     }
 
     // @interface MSPeoplePicker : MSBadgeField
-    [BaseType(typeof(MSBadgeField))]
-    [Protocol]
+    [BaseType(typeof(MSBadgeField), Name = ApiDefinitionsConstants.MSPeoplePicker)]
     interface MSPeoplePicker
     {
         // @property (copy, nonatomic) NSArray<id<MSPersona>> * _Nonnull availablePersonas;
@@ -2190,7 +2165,7 @@ namespace FabricComponents
 
         [Wrap("WeakDelegate")]
         [NullAllowed]
-        MSPeoplePickerDelegate Delegate { get; set; }
+        IMSPeoplePickerDelegate Delegate { get; set; }
 
         // @property (nonatomic, weak) id<MSPeoplePickerDelegate> _Nullable delegate;
         [NullAllowed, Export("delegate", ArgumentSemantic.Weak)]
@@ -2240,9 +2215,11 @@ namespace FabricComponents
         void DidTapSelectedBadge(MSBadgeView badge);
     }
 
+    interface IMSPersonaListViewSearchDirectoryDelegate { }
+
     // @protocol MSPersonaListViewSearchDirectoryDelegate
     [Protocol, Model]
-    [BaseType(typeof(NSObject))]
+    [BaseType(typeof(NSObject), Name = ApiDefinitionsConstants.MSPersonaListViewSearchDirectoryDelegate)]
     interface MSPersonaListViewSearchDirectoryDelegate
     {
         // @required -(void)personaListSearchDirectory:(MSPersonaListView * _Nonnull)personaListView completion:(void (^ _Nonnull)(BOOL))completion;
@@ -2251,13 +2228,11 @@ namespace FabricComponents
         void Completion(MSPersonaListView personaListView, Action<bool> completion);
     }
 
-    interface IMSPersonaListViewSearchDirectoryDelegate { }
-
-    interface IMSBadgeFieldDelegate { }
+    interface IMSPeoplePickerDelegate { }
 
     // @protocol MSPeoplePickerDelegate <MSBadgeFieldDelegate>
     [Protocol, Model]
-    [BaseType(typeof(NSObject))]
+    [BaseType(typeof(NSObject), Name = ApiDefinitionsConstants.MSPeoplePickerDelegate)]
     interface MSPeoplePickerDelegate
     {
         // todo
@@ -2299,11 +2274,11 @@ namespace FabricComponents
         //void PeoplePicker(MSPeoplePicker peoplePicker, Action<NSArray<MSPersona>, bool> completion);
     }
 
-    public interface IMSAvatar { }
+    public interface IMSPersona { }
 
     // @protocol MSPersona <MSAvatar>
     [Protocol, Model]
-    [BaseType(typeof(NSObject))]
+    [BaseType(typeof(NSObject), Name = ApiDefinitionsConstants.MSPersona)]
     interface MSPersona
     {
         // @required @property (readonly, nonatomic, strong) UIImage * _Nullable avatarImage;
@@ -2328,8 +2303,7 @@ namespace FabricComponents
     }
 
     // @interface MSPersonaBadgeViewDataSource : MSBadgeViewDataSource
-    [BaseType(typeof(MSBadgeViewDataSource))]
-    [Protocol]
+    [BaseType(typeof(MSBadgeViewDataSource), Name = ApiDefinitionsConstants.MSPersonaBadgeViewDataSource)]
     interface MSPersonaBadgeViewDataSource
     {
         // @property (nonatomic, strong) id<MSPersona> _Nonnull persona;
@@ -2343,8 +2317,7 @@ namespace FabricComponents
     }
 
     // @interface MSPersonaCell : MSTableViewCell
-    [BaseType(typeof(MSTableViewCell))]
-    [Protocol]
+    [BaseType(typeof(MSTableViewCell), Name = ApiDefinitionsConstants.MSPersonaCell)]
     interface MSPersonaCell
     {
         // @property (nonatomic) enum MSTableViewCellCustomViewSize customViewSize;
@@ -2361,11 +2334,8 @@ namespace FabricComponents
         IntPtr Constructor(UITableViewCellStyle style, [NullAllowed] string reuseIdentifier);
     }
 
-    interface IMSPersona { }
-
     // @interface MSPersonaData : NSObject <MSPersona>
-    [BaseType(typeof(NSObject))]
-    [Protocol]
+    [BaseType (typeof (NSObject), Name = ApiDefinitionsConstants.MSPersonaData)]
     [DisableDefaultCtor]
     interface MSPersonaData : MSPersona
     {
@@ -2404,8 +2374,7 @@ namespace FabricComponents
     }
 
     // @interface MSPersonaListView : UITableView
-    [BaseType(typeof(UITableView))]
-    [Protocol]
+    [BaseType (typeof (UITableView), Name = ApiDefinitionsConstants.MSPersonaListView)]
     interface MSPersonaListView
     {
         // @property (copy, nonatomic) NSArray<id<MSPersona>> * _Nonnull personaList;
@@ -2422,7 +2391,7 @@ namespace FabricComponents
 
         [Wrap("WeakSearchDirectoryDelegate")]
         [NullAllowed]
-        MSPersonaListViewSearchDirectoryDelegate SearchDirectoryDelegate { get; set; }
+        IMSPersonaListViewSearchDirectoryDelegate SearchDirectoryDelegate { get; set; }
 
         // @property (nonatomic, weak) id<MSPersonaListViewSearchDirectoryDelegate> _Nullable searchDirectoryDelegate;
         [NullAllowed, Export("searchDirectoryDelegate", ArgumentSemantic.Weak)]
@@ -2442,8 +2411,7 @@ namespace FabricComponents
     }
 
     // @interface MSPopupMenuController : MSDrawerController
-    [BaseType(typeof(MSDrawerController))]
-    [Protocol]
+    [BaseType (typeof (MSDrawerController), Name = ApiDefinitionsConstants.MSPopupMenuController)]
     interface MSPopupMenuController
     {
         // @property (nonatomic, strong) UIView * _Nullable contentView;
@@ -2506,8 +2474,7 @@ namespace FabricComponents
     }
 
     // @interface MSPopupMenuItem : NSObject
-    [BaseType(typeof(NSObject))]
-    [Protocol]
+    [BaseType (typeof (NSObject), Name = ApiDefinitionsConstants.MSPopupMenuItem)]
     [DisableDefaultCtor]
     interface MSPopupMenuItem
     {
@@ -2562,8 +2529,7 @@ namespace FabricComponents
     }
 
     // @interface MSPopupMenuSection : NSObject
-    [BaseType(typeof(NSObject))]
-    [Protocol]
+    [BaseType (typeof (NSObject), Name = ApiDefinitionsConstants.MSPopupMenuSection)]
     [DisableDefaultCtor]
     interface MSPopupMenuSection
     {
@@ -2582,8 +2548,7 @@ namespace FabricComponents
     }
 
     // @interface MSResizingHandleView : UIView
-    [BaseType(typeof(UIView))]
-    [Protocol]
+    [BaseType (typeof (UIView), Name = ApiDefinitionsConstants.MSResizingHandleView)]
     interface MSResizingHandleView
     {
         // @property (readonly, nonatomic, class) CGFloat height;
@@ -2612,7 +2577,7 @@ namespace FabricComponents
     // @interface MSScrollView : UIScrollView
     //[Unavailable(PlatformName.iOSAppExtension)]
     [Unavailable(PlatformName.iOS)]
-    [BaseType(typeof(UIScrollView))]
+    [BaseType(typeof(UIScrollView), Name = ApiDefinitionsConstants.MSScrollView)]
     interface MSScrollView
     {
         // -(instancetype _Nonnull)initWithFrame:(CGRect)frame __attribute__((objc_designated_initializer));
@@ -2630,8 +2595,7 @@ namespace FabricComponents
     }
 
     // @interface MSSearchBar : UIView
-    [BaseType(typeof(UIView))]
-    [Protocol]
+    [BaseType(typeof(UIView), Name = ApiDefinitionsConstants.MSSearchBar)]
     interface MSSearchBar
     {
         // @property (nonatomic) CGFloat cornerRadius;
@@ -2652,7 +2616,7 @@ namespace FabricComponents
 
         [Wrap("WeakDelegate")]
         [NullAllowed]
-        MSSearchBarDelegate Delegate { get; set; }
+        IMSSearchBarDelegate Delegate { get; set; }
 
         // @property (nonatomic, weak) id<MSSearchBarDelegate> _Nullable delegate;
         [NullAllowed, Export("delegate", ArgumentSemantic.Weak)]
@@ -2684,9 +2648,11 @@ namespace FabricComponents
         bool IsFirstResponder { get; }
     }
 
+    interface IMSSearchBarDelegate { }
+
     // @protocol MSSearchBarDelegate <NSObject>
     [Protocol, Model]
-    [BaseType(typeof(NSObject))]
+    [BaseType(typeof(NSObject), Name = ApiDefinitionsConstants.MSSearchBarDelegate)]
     interface MSSearchBarDelegate
     {
         // @required -(void)searchBarDidBeginEditing:(MSSearchBar * _Nonnull)searchBar;
@@ -2714,8 +2680,7 @@ namespace FabricComponents
     }
 
     // @interface MSSegmentedControl : UIControl
-    [BaseType(typeof(UIControl))]
-    [Protocol]
+    [BaseType (typeof (UIControl), Name = ApiDefinitionsConstants.MSSegmentedControl)]
     interface MSSegmentedControl
     {
         // @property (getter = isEnabled, nonatomic) BOOL enabled;
@@ -2769,8 +2734,7 @@ namespace FabricComponents
     }
 
     // @interface MSSeparator : UIView
-    [BaseType(typeof(UIView))]
-    [Protocol]
+    [BaseType (typeof (UIView), Name = ApiDefinitionsConstants.MSSeparator)]
     interface MSSeparator
     {
         // @property (nonatomic, strong) UIColor * _Nullable backgroundColor;
@@ -2787,8 +2751,7 @@ namespace FabricComponents
     }
 
     // @interface MSShimmerAppearance : NSObject
-    [BaseType(typeof(NSObject))]
-    [Protocol]
+    [BaseType(typeof(NSObject), Name = ApiDefinitionsConstants.MSShimmerAppearance)]
     [DisableDefaultCtor]
     interface MSShimmerAppearance
     {
@@ -2819,8 +2782,7 @@ namespace FabricComponents
     }
 
     // @interface MSShimmerView : UIView
-    [BaseType(typeof(UIView))]
-    [Protocol]
+    [BaseType(typeof(UIView), Name = ApiDefinitionsConstants.MSShimmerView)]
     interface MSShimmerView
     {
         // @property (nonatomic, strong) MSShimmerAppearance * _Nonnull shimmerAppearance;
@@ -2846,8 +2808,7 @@ namespace FabricComponents
     }
 
     // @interface MSShimmerLinesView : MSShimmerView
-    [BaseType(typeof(MSShimmerView))]
-    [Protocol]
+    [BaseType(typeof(MSShimmerView), Name = ApiDefinitionsConstants.MSShimmerLinesView)]
     interface MSShimmerLinesView
     {
         // +(CGSize)sizeThatFits:(CGSize)size appearance:(MSShimmerLinesViewAppearance * _Nonnull)appearance __attribute__((warn_unused_result));
@@ -2873,8 +2834,7 @@ namespace FabricComponents
     }
 
     // @interface MSShimmerLinesViewAppearance : NSObject
-    [BaseType(typeof(NSObject))]
-    [Protocol]
+    [BaseType(typeof(NSObject), Name = ApiDefinitionsConstants.MSShimmerLinesViewAppearance)]
     [DisableDefaultCtor]
     interface MSShimmerLinesViewAppearance
     {
@@ -2905,8 +2865,7 @@ namespace FabricComponents
     }
 
     // @interface MSShimmerViewAppearence : NSObject
-    [BaseType(typeof(NSObject))]
-    [Protocol]
+    [BaseType(typeof(NSObject), Name = ApiDefinitionsConstants.MSShimmerViewAppearence)]
     [DisableDefaultCtor]
     interface MSShimmerViewAppearence
     {
@@ -2937,8 +2896,7 @@ namespace FabricComponents
     }
 
     // @interface MSTabBarItem : NSObject
-    [BaseType(typeof(NSObject))]
-    [Protocol]
+    [BaseType(typeof(NSObject), Name = ApiDefinitionsConstants.MSTabBarItem)]
     [DisableDefaultCtor]
     interface MSTabBarItem
     {
@@ -2953,8 +2911,7 @@ namespace FabricComponents
     }
 
     // @interface MSTabBarView : UIView
-    [BaseType(typeof(UIView))]
-    [Protocol]
+    [BaseType(typeof(UIView), Name = ApiDefinitionsConstants.MSTabBarView)]
     interface MSTabBarView
     {
         // @property (copy, nonatomic) NSArray<MSTabBarItem *> * _Nonnull items;
@@ -2967,7 +2924,7 @@ namespace FabricComponents
 
         [Wrap("WeakDelegate")]
         [NullAllowed]
-        MSTabBarViewDelegate Delegate { get; set; }
+        IMSTabBarViewDelegate Delegate { get; set; }
 
         // @property (nonatomic, weak) id<MSTabBarViewDelegate> _Nullable delegate;
         [NullAllowed, Export("delegate", ArgumentSemantic.Weak)]
@@ -2983,6 +2940,8 @@ namespace FabricComponents
         void TraitCollectionDidChange([NullAllowed] UITraitCollection previousTraitCollection);
     }
 
+    interface IMSTabBarViewDelegate { }
+
     // @protocol MSTabBarViewDelegate
     [Protocol, Model]
     [BaseType(typeof(NSObject))]
@@ -2994,8 +2953,7 @@ namespace FabricComponents
     }
 
     // @interface MSTableViewHeaderFooterView : UITableViewHeaderFooterView
-    [BaseType(typeof(UITableViewHeaderFooterView))]
-    [Protocol]
+    [BaseType (typeof (UITableViewHeaderFooterView), Name = ApiDefinitionsConstants.MSTableViewHeaderFooterView)]
     interface MSTableViewHeaderFooterView
     {
         // @property (readonly, copy, nonatomic, class) NSString * _Nonnull identifier;
@@ -3027,7 +2985,7 @@ namespace FabricComponents
 
         [Wrap("WeakDelegate")]
         [NullAllowed]
-        MSTableViewHeaderFooterViewDelegate Delegate { get; set; }
+        IMSTableViewHeaderFooterViewDelegate Delegate { get; set; }
 
         // @property (nonatomic, weak) id<MSTableViewHeaderFooterViewDelegate> _Nullable delegate;
         [NullAllowed, Export("delegate", ArgumentSemantic.Weak)]
@@ -3072,6 +3030,8 @@ namespace FabricComponents
         CGSize SizeThatFits(CGSize size);
     }
 
+    interface IMSTableViewHeaderFooterViewDelegate { }
+
     // @protocol MSTableViewHeaderFooterViewDelegate
     [Protocol, Model]
     [BaseType(typeof(NSObject))]
@@ -3083,8 +3043,7 @@ namespace FabricComponents
     }
 
     // @interface MSTooltip : NSObject
-    [BaseType(typeof(NSObject))]
-    [Protocol]
+    [BaseType (typeof (NSObject), Name = ApiDefinitionsConstants.MSTooltip)]
     [DisableDefaultCtor]
     interface MSTooltip
     {
@@ -3116,8 +3075,7 @@ namespace FabricComponents
     }
 
     // @interface MSTouchForwardingView : UIView
-    [BaseType(typeof(UIView))]
-    [Protocol]
+    [BaseType (typeof (UIView), Name = ApiDefinitionsConstants.MSTouchForwardingView)]
     interface MSTouchForwardingView
     {
         // -(BOOL)pointInside:(CGPoint)point withEvent:(UIEvent * _Nullable)event __attribute__((warn_unused_result));
@@ -3131,8 +3089,7 @@ namespace FabricComponents
     }
 
     // @interface MSTwoLineTitleView : UIView
-    [BaseType(typeof(UIView))]
-    [Protocol]
+    [BaseType (typeof (UIView), Name = ApiDefinitionsConstants.MSTwoLineTitleView)]
     interface MSTwoLineTitleView
     {
         // @property (copy, nonatomic) NSString * _Nullable titleAccessibilityHint;
@@ -3153,7 +3110,7 @@ namespace FabricComponents
 
         [Wrap("WeakDelegate")]
         [NullAllowed]
-        MSTwoLineTitleViewDelegate Delegate { get; set; }
+        IMSTwoLineTitleViewDelegate Delegate { get; set; }
 
         // @property (nonatomic, weak) id<MSTwoLineTitleViewDelegate> _Nullable delegate;
         [NullAllowed, Export("delegate", ArgumentSemantic.Weak)]
@@ -3200,9 +3157,11 @@ namespace FabricComponents
         nint IndexOfAccessibilityElement(NSObject element);
     }
 
+    interface IMSTwoLineTitleViewDelegate { }
+
     // @protocol MSTwoLineTitleViewDelegate
     [Protocol, Model]
-    [BaseType(typeof(NSObject))]
+    [BaseType (typeof (NSObject), Name = ApiDefinitionsConstants.MSTwoLineTitleViewDelegate)]
     interface MSTwoLineTitleViewDelegate
     {
         // @required -(void)twoLineTitleViewDidTapOnTitle:(MSTwoLineTitleView * _Nonnull)twoLineTitleView;
@@ -3212,7 +3171,7 @@ namespace FabricComponents
     }
 
     // @interface OfficeUIFabricFramework : NSObject
-    [BaseType(typeof(NSObject))]
+    [BaseType (typeof (NSObject), Name = ApiDefinitionsConstants.OfficeUIFabricFramework)]
     [Protocol]
     interface OfficeUIFabricFramework
     {
