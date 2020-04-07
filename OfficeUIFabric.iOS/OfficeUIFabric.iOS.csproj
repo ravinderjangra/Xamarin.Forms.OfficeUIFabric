@@ -43,9 +43,8 @@
   </ItemGroup>
   <ItemGroup>
     <ObjcBindingApiDefinition Include="ApiDefinitions.cs" />
-  </ItemGroup>
-  <ItemGroup>
     <ObjcBindingCoreSource Include="Structs.cs" />
+    <ObjcBindingCoreSource Include="ApiDefinitionsConstants.cs" />
   </ItemGroup>
   <ItemGroup>
     <NativeReference Include="..\Build\externals\OfficeUIFabric.framework">
