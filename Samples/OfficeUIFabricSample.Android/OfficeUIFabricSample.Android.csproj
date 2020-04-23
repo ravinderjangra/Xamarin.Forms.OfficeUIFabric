@@ -31,6 +31,7 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
     <AndroidLinkMode>None</AndroidLinkMode>
+<JavaMaximumHeapSize>1G</JavaMaximumHeapSize>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -60,6 +61,7 @@
     <PackageReference Include="Xamarin.AndroidX.Browser" Version="1.0.0" />
     <PackageReference Include="Xamarin.Google.Android.Material" Version="1.0.0" />
     <PackageReference Include="Xamarin.AndroidX.Legacy.Support.V4" Version="1.0.0" />
+    <PackageReference Include="Xamarin.AndroidX.ExifInterface" Version="1.1.0" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="MainActivity.cs" />
