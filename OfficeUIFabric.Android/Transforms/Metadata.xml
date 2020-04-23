@@ -1,8 +1,52 @@
 ﻿<metadata>
-    <!--Todo: implement these properly in additions or here. -->
-    <remove-node path="/api/package[@name='com.microsoft.officeuifabric.util']/class[@name='ColorProperty']" />
+    <!-- Flattering namespace -->
+    <attr path="/api/package[@name='com.microsoft.officeuifabric']" name="managedName">OfficeUIFabric.Android</attr>
+    <attr path="/api/package[@name='com.microsoft.officeuifabric.calendar']" name="managedName">OfficeUIFabric.Android</attr>
+    <attr path="/api/package[@name='com.microsoft.officeuifabric.datetimepicker']" name="managedName">OfficeUIFabric.Android</attr>
+    <attr path="/api/package[@name='com.microsoft.officeuifabric.managers']" name="managedName">OfficeUIFabric.Android</attr>
+    <attr path="/api/package[@name='com.microsoft.officeuifabric.peoplepicker']" name="managedName">OfficeUIFabric.Android</attr>
+    <attr path="/api/package[@name='com.microsoft.officeuifabric.persona']" name="managedName">OfficeUIFabric.Android</attr>
+    <attr path="/api/package[@name='com.microsoft.officeuifabric.snackbar']" name="managedName">OfficeUIFabric.Android</attr>
+    <attr path="/api/package[@name='com.microsoft.officeuifabric.tooltip']" name="managedName">OfficeUIFabric.Android</attr>
+    <attr path="/api/package[@name='com.microsoft.officeuifabric.util']" name="managedName">OfficeUIFabric.Android</attr>
+    <attr path="/api/package[@name='com.microsoft.officeuifabric.view']" name="managedName">OfficeUIFabric.Android</attr>
+    <attr path="/api/package[@name='com.microsoft.officeuifabric.bottomsheet']" name="managedName">OfficeUIFabric.Android</attr>
+    <attr path="/api/package[@name='com.microsoft.officeuifabric.drawer']" name="managedName">OfficeUIFabric.Android</attr>
+    <attr path="/api/package[@name='com.microsoft.officeuifabric.listitem']" name="managedName">OfficeUIFabric.Android</attr>
+    <attr path="/api/package[@name='com.microsoft.officeuifabric.appbarlayout']" name="managedName">OfficeUIFabric.Android</attr>
+    <attr path="/api/package[@name='com.microsoft.officeuifabric.popupmenu']" name="managedName">OfficeUIFabric.Android</attr>
+    <attr path="/api/package[@name='com.microsoft.officeuifabric.search']" name="managedName">OfficeUIFabric.Android</attr>
+    <attr path="/api/package[@name='com.microsoft.officeuifabric.theming']" name="managedName">OfficeUIFabric.Android</attr>
+    <attr path="/api/package[@name='com.microsoft.officeuifabric.toolbar']" name="managedName">OfficeUIFabric.Android</attr>
+    <attr path="/api/package[@name='com.microsoft.officeuifabric.widget']" name="managedName">OfficeUIFabric.Android</attr>
+    
+    <!-- Fix types -->
+    <attr path="/api/package[@name='com.microsoft.officeuifabric.calendar']/class[@name='CalendarAdapter']/method[@name='onCreateViewHolder' and count(parameter)=2 and parameter[1][@type='android.view.ViewGroup'] and parameter[2][@type='int']]" name="managedReturn">Android.Support.V7.Widget.RecyclerView.ViewHolder</attr>
+    <attr path="/api/package[@name='com.microsoft.officeuifabric.persona']/class[@name='PersonaListAdapter']/method[@name='onCreateViewHolder' and count(parameter)=2 and parameter[1][@type='android.view.ViewGroup'] and parameter[2][@type='int']]" name="managedReturn">Android.Support.V7.Widget.RecyclerView.ViewHolder</attr>
+
+    <!-- Manually implement these to get the correct types -->
+    <remove-node path="/api/package[@name='com.microsoft.officeuifabric.calendar']/class[@name='CalendarAdapter']/method[@name='onBindViewHolder' and count(parameter)=2 and parameter[1][@type='com.microsoft.officeuifabric.calendar.CalendarAdapter.CalendarDayViewHolder'] and parameter[2][@type='int']]" />
+    <remove-node path="/api/package[@name='com.microsoft.officeuifabric.persona']/class[@name='PersonaListAdapter']/method[@name='onBindViewHolder' and count(parameter)=2 and parameter[1][@type='com.microsoft.officeuifabric.persona.PersonaListAdapter.ViewHolder'] and parameter[2][@type='int']]" />
+    
+    <!-- Removed namespace/controls -->
+    <!-- ToDo: Fix and update these back -->
+    <remove-node path="/api/package[starts-with (@name, 'com.microsoft.officeuifabric.calendar')]" />
+    <remove-node path="/api/package[starts-with (@name, 'com.microsoft.officeuifabric.datetimepicker')]" />
+    
+    <!-- Bindings meta changes -->
     <remove-node path="/api/package[@name='com.microsoft.officeuifabric.popupmenu']/class[@name='PopupMenuAdapter']" />
-    <remove-node path="/api/package[@name='com.microsoft.officeuifabric.listitem']/class[@name='ListItemView']" />
-    <remove-node path="/api/package[@name='com.microsoft.officeuifabric.popupmenu']/class[@name='PopupMenuItem.CREATOR']" />
-    <remove-node path="/api/package[@name='com.microsoft.officeuifabric.listitem']/class[@name='ListSubHeaderView']" />
+    <attr path="/api/package[@name='com.microsoft.officeuifabric.util']/class[@name='ColorProperty']/method[@name='setValue' and count(parameter)=2 and parameter[1][@type='android.view.View'] and parameter[2][@type='float']]/parameter[1]" name="managedType">Java.Lang.Object</attr>
+    <attr path="/api/package[@name='com.microsoft.officeuifabric.util']/class[@name='ColorProperty']/method[@name='get' and count(parameter)=1 and parameter[1][@type='android.view.View']]/parameter[1]" name="managedType">Java.Lang.Object</attr>
+    <attr path="/api/package[@name='com.microsoft.officeuifabric.util']/class[@name='ColorProperty']/method[@name='get' and count(parameter)=1 and parameter[1][@type='android.view.View']]" name="managedReturn">Java.Lang.Object</attr>
+    <attr path="/api/package[@name='com.microsoft.officeuifabric.popupmenu']/class[@name='PopupMenuItem.CREATOR']" name="managedName">Creator</attr>
+    <attr path="/api/package[@name='com.microsoft.officeuifabric.popupmenu']/class[@name='PopupMenuItem.CREATOR']/method[@name='createFromParcel' and count(parameter)=1 and parameter[1][@type='android.os.Parcel']]" name="managedReturn">Java.Lang.Object</attr>
+    <attr path="/api/package[@name='com.microsoft.officeuifabric.popupmenu']/class[@name='PopupMenuItem.CREATOR']/method[@name='newArray' and count(parameter)=1 and parameter[1][@type='int']]" name="managedReturn">Java.Lang.Object[]</attr>
+    <attr path="/api/package[@name='com.microsoft.officeuifabric.listitem']/class[@name='ListItemView']/method[@name='getBackground' and count(parameter)=0]" name="return">android.graphics.drawable.Drawable</attr>
+    <attr path="/api/package[@name='com.microsoft.officeuifabric.listitem']/class[@name='ListItemView']/method[@name='setBackground' and count(parameter)=1 and parameter[1][@type='int']]/parameter[1]" name="type">android.graphics.drawable.Drawable</attr>
+    <attr path="/api/package[@name='com.microsoft.officeuifabric.listitem']/class[@name='ListItemView']/method[@name='getBackground' and count(parameter)=0]" name="managedReturn">Android.Graphics.Drawables.Drawable</attr>
+    <attr path="/api/package[@name='com.microsoft.officeuifabric.listitem']/class[@name='ListItemView']/method[@name='setBackground' and count(parameter)=1 and parameter[1][@type='int']]/parameter[1]" name="managedType">Android.Graphics.Drawables.Drawable</attr>
+    <attr path="/api/package[@name='com.microsoft.officeuifabric.listitem']/class[@name='ListSubHeaderView']/method[@name='getBackground' and count(parameter)=0]" name="return">android.graphics.drawable.Drawable</attr>
+    <attr path="/api/package[@name='com.microsoft.officeuifabric.listitem']/class[@name='ListSubHeaderView']/method[@name='setBackground' and count(parameter)=1 and parameter[1][@type='int']]/parameter[1]" name="type">android.graphics.drawable.Drawable</attr>
+    <attr path="/api/package[@name='com.microsoft.officeuifabric.listitem']/class[@name='ListSubHeaderView']/method[@name='getBackground' and count(parameter)=0]" name="managedReturn">Android.Graphics.Drawables.Drawable</attr>
+    <attr path="/api/package[@name='com.microsoft.officeuifabric.listitem']/class[@name='ListSubHeaderView']/method[@name='setBackground' and count(parameter)=1 and parameter[1][@type='int']]/parameter[1]" name="managedType">Android.Graphics.Drawables.Drawable</attr>
 </metadata>
