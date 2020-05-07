@@ -53,11 +53,11 @@
     <None Include="Resources\AboutResources.txt" />
   </ItemGroup>
   <ItemGroup>
-    <PackageReference Include="Xamarin.AndroidX.AppCompat" Version="1.0.2-preview02" />
+    <PackageReference Include="Xamarin.AndroidX.AppCompat" Version="1.1.0" />
     <PackageReference Include="Xamarin.Forms">
-      <Version>4.4.0.991640</Version>
+      <Version>4.6.0.726</Version>
     </PackageReference>
-  <PackageReference Include="Xamarin.AndroidX.Migration" Version="1.0.0-preview03" /></ItemGroup>
+  <PackageReference Include="Xamarin.AndroidX.Migration" Version="1.0.5" /></ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\values\strings.xml" />
   </ItemGroup>
