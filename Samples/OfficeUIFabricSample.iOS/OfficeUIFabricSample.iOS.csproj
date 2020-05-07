@@ -121,8 +121,8 @@
     <Reference Include="System.Numerics.Vectors" />
   </ItemGroup>
   <ItemGroup>
-    <PackageReference Include="Xamarin.Forms" Version="4.4.0.991640" />
-    <PackageReference Include="Xamarin.Essentials" Version="1.4.0" />
+    <PackageReference Include="Xamarin.Forms" Version="4.6.0.726" />
+    <PackageReference Include="Xamarin.Essentials" Version="1.5.3.1" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\OfficeUIFabricSample\OfficeUIFabricSample.csproj">
@@ -136,6 +136,10 @@
     <ProjectReference Include="..\..\Visual.Fabric\Visual.Fabric.iOS\Visual.Fabric.iOS.csproj">
       <Project>{9FA43A1F-5EF6-4DA9-8C2C-AEC2E7C6741F}</Project>
       <Name>Visual.Fabric.iOS</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Visual.Fabric\Visual.Fabric.Forms\Visual.Fabric.Forms.csproj">
+      <Project>{266D1990-BEC9-4964-BC7B-DEC90C5F815C}</Project>
+      <Name>Visual.Fabric.Forms</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.iOS.CSharp.targets" />
