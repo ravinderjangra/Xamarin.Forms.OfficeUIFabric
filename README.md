@@ -12,6 +12,5 @@ C# wrapper for the Office UI Fabric libs for Android and iOS. All a Fabric visua
 ## Working Control examples
 **iOS**
 
-![Fabric button example iOS](./Docs/Screenshots/ButtonSample-iOS.png =300x)
-
-![Fabric label example iOS](./Docs/Screenshots/LabelSample-iOS.png =300x)
+<img src="./Docs/Screenshots/ButtonSample-iOS.png" width="300">
+<img src="./Docs/Screenshots/LabelSample-iOS.png" width="300">
