@@ -1,0 +1,40 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<ContentPage x:Class="OfficeUIFabricSample.ControlExamples.ButtonExamples"
+             xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:Fabric="clr-namespace:Visual.Fabric.Forms;assembly=Visual.Fabric.Forms"
+             Title="Fabric Button Examples">
+    <ContentPage.Content>
+        <StackLayout Padding="20"
+                     Visual="Fabric">
+            <Button Fabric:FabricButton.ButtonStyle="PrimaryFilled"
+                    HorizontalOptions="FillAndExpand"
+                    Text="Primary Filled" />
+            <Button Fabric:FabricButton.ButtonStyle="PrimaryFilled"
+                    HorizontalOptions="FillAndExpand"
+                    IsEnabled="False"
+                    Text="Primary Filled Disabled" />
+            <Button Fabric:FabricButton.ButtonStyle="PrimaryOutLine"
+                    HorizontalOptions="FillAndExpand"
+                    Text="Primary Outline" />
+            <Button Fabric:FabricButton.ButtonStyle="PrimaryOutLine"
+                    HorizontalOptions="FillAndExpand"
+                    IsEnabled="False"
+                    Text="Primary Outline Disabled" />
+            <Button Fabric:FabricButton.ButtonStyle="SecondaryOutLine"
+                    HorizontalOptions="FillAndExpand"
+                    Text="Secondary Outline" />
+            <Button Fabric:FabricButton.ButtonStyle="SecondaryOutLine"
+                    HorizontalOptions="FillAndExpand"
+                    IsEnabled="False"
+                    Text="Secondary Outline Disabled" />
+            <Button Fabric:FabricButton.ButtonStyle="Borderless"
+                    HorizontalOptions="FillAndExpand"
+                    Text="Borderless" />
+            <Button Fabric:FabricButton.ButtonStyle="Borderless"
+                    HorizontalOptions="FillAndExpand"
+                    IsEnabled="False"
+                    Text="Borderless Disabled" />
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

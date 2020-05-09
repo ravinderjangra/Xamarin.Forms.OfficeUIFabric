@@ -1,12 +1,17 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
-<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" xmlns:d="http://xamarin.com/schemas/2014/forms/design" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" mc:Ignorable="d" x:Class="OfficeUIFabricSample.MainPage">
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage x:Class="OfficeUIFabricSample.MainPage"
+             xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             Title="Fabric Control Exmaples"
+             mc:Ignorable="d">
     <StackLayout Padding="20"
-                 Visual="Fabric"
-                 VerticalOptions="Center">
-        <Button Text="Fabric Button Enabled"
-                HorizontalOptions="FillAndExpand" />
-        <Button Text="Fabric Button Disabled"
-                HorizontalOptions="FillAndExpand"
-                IsEnabled="False"/>
+                 VerticalOptions="Center"
+                 Visual="Fabric">
+        <Button x:Name="ShowButtonExamples"
+                Text="Buttons" />
+        <Button x:Name="ShowLabelExamples"
+                Text="Labels" />
     </StackLayout>
 </ContentPage>

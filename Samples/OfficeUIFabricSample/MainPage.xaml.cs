@@ -1,9 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.ComponentModel;
+using OfficeUIFabricSample.ControlExamples;
 using Xamarin.Forms;
 
 namespace OfficeUIFabricSample
@@ -16,6 +12,16 @@ namespace OfficeUIFabricSample
         public MainPage()
         {
             InitializeComponent();
+
+            ShowButtonExamples.Clicked += (s, e) =>
+            {
+                Navigation.PushAsync(new ButtonExamples());
+            };
+
+            ShowLabelExamples.Clicked += (s, e) =>
+            {
+                Navigation.PushAsync(new LabelExamples());
+            };
         }
     }
 }
