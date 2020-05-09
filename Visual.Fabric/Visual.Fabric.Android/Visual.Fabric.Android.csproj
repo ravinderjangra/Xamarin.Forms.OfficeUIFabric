@@ -57,7 +57,7 @@
     <PackageReference Include="Xamarin.Forms">
       <Version>4.6.0.726</Version>
     </PackageReference>
-  <PackageReference Include="Xamarin.AndroidX.Migration" Version="1.0.5" /></ItemGroup>
+  <PackageReference Include="Xamarin.AndroidX.Migration" Version="1.0.6" /></ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\values\strings.xml" />
   </ItemGroup>
