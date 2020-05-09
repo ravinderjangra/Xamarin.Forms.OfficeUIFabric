@@ -1,0 +1,47 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<ContentPage x:Class="OfficeUIFabricSample.ControlExamples.LabelExamples"
+             xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:Fabric="clr-namespace:Visual.Fabric.Forms;assembly=Visual.Fabric.Forms"
+             Title="Fabric Label Examples">
+    <ContentPage.Content>
+        <StackLayout Padding="20"
+                     Visual="Fabric">
+            <Label Fabric:FabricLabel.LabelTextStyle="LargeTitle"
+                   Text="Label color Styles" />
+            <Label Fabric:FabricLabel.LabelColorStyle="Regular"
+                   Text="Regular" />
+            <Label Fabric:FabricLabel.LabelColorStyle="Primary"
+                   Text="Primary" />
+            <Label Fabric:FabricLabel.LabelColorStyle="Secondary"
+                   Text="Secondary" />
+            <Label Fabric:FabricLabel.LabelColorStyle="Error"
+                   Text="Error" />
+            <Label Fabric:FabricLabel.LabelColorStyle="Disabled"
+                   Text="Disabled" />
+            <Label Fabric:FabricLabel.LabelColorStyle="Warning"
+                   Text="Warning" />
+            <Label Fabric:FabricLabel.LabelColorStyle="White"
+                   Text="White" />
+
+            <Label Fabric:FabricLabel.LabelTextStyle="LargeTitle"
+                   Text="Label text Styles" />
+            <Label Fabric:FabricLabel.LabelTextStyle="Title1"
+                   Text="Title 1" />
+            <Label Fabric:FabricLabel.LabelTextStyle="Title2"
+                   Text="Title 2" />
+            <Label Fabric:FabricLabel.LabelTextStyle="Headline"
+                   Text="Headline" />
+            <Label Fabric:FabricLabel.LabelTextStyle="Body"
+                   Text="Body" />
+            <Label Fabric:FabricLabel.LabelTextStyle="Subhead"
+                   Text="Subhead" />
+            <Label Fabric:FabricLabel.LabelTextStyle="Footnote"
+                   Text="Footnote" />
+            <Label Fabric:FabricLabel.LabelTextStyle="Caption1"
+                   Text="Caption1" />
+            <Label Fabric:FabricLabel.LabelTextStyle="Caption2"
+                   Text="Caption2" />
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
