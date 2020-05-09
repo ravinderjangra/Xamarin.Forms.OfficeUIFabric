@@ -9,7 +9,9 @@ C# wrapper for the Office UI Fabric libs for Android and iOS. All a Fabric visua
 - Publish Fabric Visual Nuget Package for the Xamarin.Forms.
 - Test more controls and add to the Sample project.
 
-## Working sample screen
+## Working Control examples
 **iOS**
 
-![Fabric button example iOS](./Docs/Screenshots/ButtonSample-iOS.png)
+![Fabric button example iOS](./Docs/Screenshots/ButtonSample-iOS.png =300x)
+
+![Fabric label example iOS](./Docs/Screenshots/LabelSample-iOS.png =300x)
