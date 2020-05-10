@@ -3,7 +3,7 @@
   <metadata>
     <id>Xamarin.iOS.FabricComponents</id>
     <title>Xamarin Office UI Fabric Components for iOS</title>
-    <version>0.0.1-rc1</version>
+    <version>0.0.1</version>
     <authors>Ravinder Jangra</authors>
     <owners>Ravinder Jangra</owners>
     <requireLicenseAcceptance>true</requireLicenseAcceptance>
