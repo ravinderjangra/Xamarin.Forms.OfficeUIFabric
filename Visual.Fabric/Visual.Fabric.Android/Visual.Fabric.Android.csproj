@@ -66,13 +66,13 @@
     <Folder Include="Renderers\" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\OfficeUIFabric.Android\OfficeUIFabric.Android.csproj">
-      <Project>{2A74F1CF-C96D-4AFD-B8A5-F607374521EB}</Project>
-      <Name>OfficeUIFabric.Android</Name>
-    </ProjectReference>
     <ProjectReference Include="..\Visual.Fabric.Forms\Visual.Fabric.Forms.csproj">
       <Project>{266D1990-BEC9-4964-BC7B-DEC90C5F815C}</Project>
       <Name>Visual.Fabric.Forms</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\OfficeUIFabric.Android\OfficeUIFabric.Android.csproj">
+      <Project>{B3D3B0DC-6AEA-4DE1-95D0-6DA6CDAA3EAB}</Project>
+      <Name>OfficeUIFabric.Android</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets" />
