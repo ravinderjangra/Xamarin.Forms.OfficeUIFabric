@@ -1,58 +1,60 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+<Project Sdk="MSBuild.Sdk.Extras/2.0.54">
   <PropertyGroup>
-    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
-    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectTypeGuids>{8FFB629D-F513-41CE-95D2-7ECE97B6EEEC};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
-    <ProjectGuid>{04E314A4-C0F2-4BEB-84A3-1832BFC2EBAE}</ProjectGuid>
-    <TemplateGuid>{b6f3ff35-79b2-4f25-a2fc-60a7cf61013b}</TemplateGuid>
-    <OutputType>Library</OutputType>
-    <RootNamespace>FabricComponents</RootNamespace>
-    <IPhoneResourcePrefix>Resources</IPhoneResourcePrefix>
+    <TargetFrameworks>Xamarin.iOS10</TargetFrameworks>
+    <IsBindingProject>true</IsBindingProject>
     <AssemblyName>FabricComponents</AssemblyName>
-    <RestoreProjectStyle>PackageReference</RestoreProjectStyle>
-  </PropertyGroup>
-  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
-    <DebugSymbols>true</DebugSymbols>
-    <DebugType>full</DebugType>
-    <Optimize>false</Optimize>
-    <OutputPath>bin\Debug</OutputPath>
-    <DefineConstants>DEBUG;</DefineConstants>
-    <ErrorReport>prompt</ErrorReport>
-    <WarningLevel>4</WarningLevel>
+    <IPhoneResourcePrefix>Resources</IPhoneResourcePrefix>
+    <RootNamespace>FabricComponents</RootNamespace>
     <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+    <ProcessEnums>true</ProcessEnums>
   </PropertyGroup>
-  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
-    <DebugType>full</DebugType>
-    <Optimize>true</Optimize>
-    <OutputPath>bin\Release</OutputPath>
-    <ErrorReport>prompt</ErrorReport>
-    <WarningLevel>4</WarningLevel>
-    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+  
+  <PropertyGroup>
+    <PackageId>Xamarin.iOS.FabricComponents</PackageId>
+    <Title>Xamarin Office UI Fabric Components for iOS</Title>
+    <Summary>Develop iOS apps using Office UI Fabric controls.</Summary>
+    <Authors>Ravinder Jangra</Authors>
+    <Owners>Ravinder Jangra</Owners>
+    <PackageProjectUrl>https://github.com/ravinderjangra/Xamarin.Forms.OfficeUIFabric</PackageProjectUrl>
+    <PackageLicenseExpression>MIT</PackageLicenseExpression>
+    <PackageVersion>0.0.1</PackageVersion>
   </PropertyGroup>
+
   <ItemGroup>
-    <Reference Include="System" />
-    <Reference Include="System.Core" />
+    <None Include="..\Build\externals\OfficeUIFabric.framework\*">
+      <Link>OfficeUIFabric.framework</Link>
+    </None>
+  </ItemGroup>
+
+  <ItemGroup>
     <Reference Include="Xamarin.iOS" />
   </ItemGroup>
+  
   <ItemGroup>
     <Folder Include="Resources\" />
   </ItemGroup>
-  <ItemGroup>
-    <Compile Include="Properties\AssemblyInfo.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <ObjcBindingApiDefinition Include="ApiDefinitions.cs" />
-    <ObjcBindingCoreSource Include="Structs.cs" />
-    <ObjcBindingCoreSource Include="ApiDefinitionsConstants.cs" />
-  </ItemGroup>
+  
   <ItemGroup>
     <NativeReference Include="..\Build\externals\OfficeUIFabric.framework">
       <Kind>Framework</Kind>
-      <Frameworks>Foundation UIKit CoreGraphics</Frameworks>
-      <LinkerFlags>-ObjC</LinkerFlags>
-      <ForceLoad>True</ForceLoad>
     </NativeReference>
   </ItemGroup>
-  <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.iOS.ObjCBinding.CSharp.targets" />
+
+  <ItemGroup>
+    <PackageReference Include="Xamarin.iOS.SwiftRuntimeSupport" Version="0.1.0" />
+  </ItemGroup>
+    
+  <ItemGroup>
+    <Compile Remove="ApiDefinitionsConstants.cs" />
+    <Compile Remove="Structs.cs" />
+    <Compile Remove="ApiDefinitions.cs" />
+  </ItemGroup>
+  
+  <ItemGroup>
+    <ObjcBindingCoreSource Include="ApiDefinitionsConstants.cs" Condition=" '$(EnableDefaultCompileItems)' == 'true' " />
+    <ObjcBindingApiDefinition Include="Structs.cs" Condition=" '$(EnableDefaultCompileItems)' == 'true' " />
+    <ObjcBindingApiDefinition Include="ApiDefinitions.cs" Condition=" '$(EnableDefaultCompileItems)' == 'true' " />
+  </ItemGroup>
+
 </Project>

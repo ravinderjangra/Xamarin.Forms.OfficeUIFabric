@@ -52,13 +52,13 @@
     </PackageReference>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\OfficeUIFabric.iOS\OfficeUIFabric.iOS.csproj">
-      <Project>{04E314A4-C0F2-4BEB-84A3-1832BFC2EBAE}</Project>
-      <Name>OfficeUIFabric.iOS</Name>
-    </ProjectReference>
     <ProjectReference Include="..\Visual.Fabric.Forms\Visual.Fabric.Forms.csproj">
       <Project>{266D1990-BEC9-4964-BC7B-DEC90C5F815C}</Project>
       <Name>Visual.Fabric.Forms</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\OfficeUIFabric.iOS\OfficeUIFabric.iOS.csproj">
+      <Project>{04E314A4-C0F2-4BEB-84A3-1832BFC2EBAE}</Project>
+      <Name>OfficeUIFabric.iOS</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.iOS.CSharp.targets" />
