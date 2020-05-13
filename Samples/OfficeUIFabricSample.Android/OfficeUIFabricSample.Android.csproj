@@ -100,6 +100,10 @@
       <Project>{3A9C2491-4FD9-4349-BB5E-35868E2FAB60}</Project>
       <Name>OfficeUIFabricSample</Name>
     </ProjectReference>
+    <ProjectReference Include="..\..\OfficeUIFabric.Android\OfficeUIFabric.Android.csproj">
+      <Project>{B3D3B0DC-6AEA-4DE1-95D0-6DA6CDAA3EAB}</Project>
+      <Name>OfficeUIFabric.Android</Name>
+    </ProjectReference>
   </ItemGroup>
  <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets" />
 </Project>
