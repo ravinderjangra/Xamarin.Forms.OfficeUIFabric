@@ -126,16 +126,12 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\OfficeUIFabricSample\OfficeUIFabricSample.csproj">
-      <Project>{3A9C2491-4FD9-4349-BB5E-35868E2FAB60}</Project>
+      <Project>{14C97E19-3D21-48EF-9102-55EF28CFDC78}</Project>
       <Name>OfficeUIFabricSample</Name>
     </ProjectReference>
     <ProjectReference Include="..\..\OfficeUIFabric.iOS\OfficeUIFabric.iOS.csproj">
       <Project>{04E314A4-C0F2-4BEB-84A3-1832BFC2EBAE}</Project>
       <Name>OfficeUIFabric.iOS</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\..\Visual.Fabric\Visual.Fabric.iOS\Visual.Fabric.iOS.csproj">
-      <Project>{9FA43A1F-5EF6-4DA9-8C2C-AEC2E7C6741F}</Project>
-      <Name>Visual.Fabric.iOS</Name>
     </ProjectReference>
     <ProjectReference Include="..\..\Visual.Fabric\Visual.Fabric.Forms\Visual.Fabric.Forms.csproj">
       <Project>{266D1990-BEC9-4964-BC7B-DEC90C5F815C}</Project>

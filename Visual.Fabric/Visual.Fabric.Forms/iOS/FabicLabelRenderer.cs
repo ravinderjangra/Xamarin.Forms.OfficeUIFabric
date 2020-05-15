@@ -2,13 +2,14 @@
 using FabricComponents;
 using UIKit;
 using Visual.Fabric.Forms;
-using Visual.Fabric.iOS.Renderers;
+using Visual.Fabric.iOS;
 using Xamarin.Forms;
 using Xamarin.Forms.Platform.iOS;
+using FabricVisual = Visual.Fabric.Forms.FabricVisual;
 
 [assembly: ExportRenderer(typeof(Label), typeof(FabicLabelRenderer), new[] { typeof(FabricVisual) })]
 
-namespace Visual.Fabric.iOS.Renderers
+namespace Visual.Fabric.iOS
 {
     public class FabicLabelRenderer : LabelRenderer
     {
