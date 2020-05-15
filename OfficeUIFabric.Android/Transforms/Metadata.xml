@@ -32,6 +32,7 @@
     <!-- ToDo: Fix and update these back -->
     <remove-node path="/api/package[starts-with (@name, 'com.microsoft.officeuifabric.calendar')]" />
     <remove-node path="/api/package[starts-with (@name, 'com.microsoft.officeuifabric.datetimepicker')]" />
+    <remove-node path="/api/package[@name='com.microsoft.officeuifabric.peoplepicker']/interface[@name='PeoplePickerView.PersonaSuggestionsListener']" />
     
     <!-- Bindings meta changes -->
     <remove-node path="/api/package[@name='com.microsoft.officeuifabric.popupmenu']/class[@name='PopupMenuAdapter']" />
