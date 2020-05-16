@@ -1,4 +1,6 @@
-# Xamarin.Forms Office UI Fabric
+# Xamarin.Forms Office UI Fabric [ moved to [XamarinFluentUI](https://github.com/ravinderjangra/XamarinFluentUI) ]
+
+_**Note:** The project has been rebranded and moved to [XamarinFluentUI](https://github.com/ravinderjangra/XamarinFluentUI) to align with Microsoft Fluent UI design system._
 
 C# wrapper for the Office UI Fabric libs for Android and iOS. All a Fabric visual implementation for easy use with the Xamarin.Forms.
 
